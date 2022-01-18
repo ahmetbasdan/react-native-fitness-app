@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Card,
-  Divider,
-  Dialog,
-  Paragraph,
-  Modal,
-  Portal,
-} from "react-native-paper";
+import { Button, Card, Divider, Modal, Portal } from "react-native-paper";
 import { benchPressGif } from "../assets/gifs";
 import { fitnessBg } from "../assets/images";
 
@@ -15,12 +7,14 @@ interface IProps {
   title: string;
   subTitle: string;
   gif?: NodeRequire;
+  bg?: NodeRequire;
 }
 
 const SporMovementCard: React.FC<IProps> = ({
   title = "Başlık",
   subTitle = "Alt Başlık",
   gif = benchPressGif,
+  bg = fitnessBg,
 }) => {
   const [gifVisible, setGifVisible] = useState(false);
 
@@ -30,8 +24,8 @@ const SporMovementCard: React.FC<IProps> = ({
 
   return (
     <>
-      <Card style={{ marginBottom: 36, marginHorizontal: 8 }} onPress={showModal}>
-        <Card.Cover source={fitnessBg} />
+      <Card style={{ marginHorizontal: 8 }} onPress={showModal}>
+        <Card.Cover source={bg} />
         <Card.Title
           title={title}
           subtitle={subTitle}
