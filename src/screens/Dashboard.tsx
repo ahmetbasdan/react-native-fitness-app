@@ -1,43 +1,26 @@
+import { ScrollView } from "react-native";
 import React from "react";
-import { Image } from "react-native";
-import { BottomNavigation, Text } from "react-native-paper";
-import { fullBodyIcon, regionalIcon } from "../assets/icons";
-
-import FitnessFullBody from "./FitnessFullBody";
-import FitnessRegional from "./FitnessRegional";
+import { Appbar } from "react-native-paper";
+import { SportParentCard } from "../components/dashboard";
+import { Space } from "../components/toolbox";
+import * as images from "../assets/images";
 
 const Dashboard = () => {
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
-    {
-      key: "fullBody",
-      title: "Tüm Vücut",
-      icon: () => (
-        <Image
-          source={fullBodyIcon}
-          style={{ tintColor: "#fff", width: 25, height: 25 }}
-        />
-      ),
-    },
-    { key: "regional", title: "Bölgesel",   icon: () => (
-        <Image
-          source={regionalIcon}
-          style={{ tintColor: "#fff", width: 25, height: 25 }}
-        />
-      ), },
-  ]);
-
-  const renderScene = BottomNavigation.SceneMap({
-    fullBody: FitnessFullBody,
-    regional: FitnessRegional,
-  });
-
   return (
-    <BottomNavigation
-      navigationState={{ index, routes }}
-      onIndexChange={setIndex}
-      renderScene={renderScene}
-    />
+    <>
+      <Appbar>
+        <Appbar.Content title="Fitness Program" />
+      </Appbar>
+      <ScrollView contentContainerStyle={{ paddingHorizontal: 6 }}>
+        <Space />
+        <SportParentCard title="Full Body Antreman" bg={images.fullBodyBg} />
+        <Space />
+        <SportParentCard title="Chest Antreman" bg={images.chestBg} />
+        <Space />
+        <SportParentCard title="Legs Antreman" bg={images.legsBg} />
+        <Space />
+      </ScrollView>
+    </>
   );
 };
 

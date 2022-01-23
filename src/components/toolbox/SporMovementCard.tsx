@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Card, Divider, Modal, Portal } from "react-native-paper";
-import { benchPressGif } from "../assets/gifs";
-import { fitnessBg } from "../assets/images";
+import { benchPressGif } from "../../assets/gifs";
+import { fitnessBg } from "../../assets/images";
 
 interface IProps {
   title: string;

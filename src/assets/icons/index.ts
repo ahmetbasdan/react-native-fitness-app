@@ -1,4 +1,4 @@
-const fullBodyIcon = require("./fullBody.png");
-const regionalIcon = require("./regional.png");
+const dumbbell = require("./dumbbell.png");
+const user = require("./user.png");
 
-export { fullBodyIcon, regionalIcon };
+export { dumbbell, user };

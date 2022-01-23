@@ -1,16 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { Provider as PaperProvider,DefaultTheme, Colors } from "react-native-paper";
+import { View } from "react-native";
+import {
+  Provider as PaperProvider,
+  DefaultTheme,
+  Colors,
+} from "react-native-paper";
 import Constants from "expo-constants";
-import Dashboard from "./src/screens/Dashboard";
+import StackNavigator from "./src/navigators/StackNavigator";
 
-const theme={
+const theme = {
   ...DefaultTheme,
-  colors:{
+  colors: {
     ...DefaultTheme.colors,
-    primary:Colors.green600
-  }
-}
+    primary: Colors.green600,
+  },
+};
 
 export default function App() {
   return (
@@ -18,17 +22,8 @@ export default function App() {
       <View style={{ height: Constants.statusBarHeight }}></View>
       <StatusBar style="light" backgroundColor={Colors.green800} />
       <PaperProvider theme={theme}>
-        <Dashboard />
+        <StackNavigator />
       </PaperProvider>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
