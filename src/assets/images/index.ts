@@ -7,6 +7,7 @@ const shoulderBg = require("./shoulderBg.jpg");
 const tricepsBg = require("./tricepsBg.jpg");
 const wristBg = require("./wristBg.jpg");
 const fullBodyBg = require("./fullBodyBg.jpg");
+const logo = require("./logo.png");
 
 export {
   fitnessBg,
@@ -17,5 +18,6 @@ export {
   shoulderBg,
   tricepsBg,
   wristBg,
-  fullBodyBg
+  fullBodyBg,
+  logo,
 };
