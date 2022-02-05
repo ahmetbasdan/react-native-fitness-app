@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageSourcePropType, View, StyleSheet } from "react-native";
 import { Card, Colors, Title, TouchableRipple } from "react-native-paper";
-import * as images from "../../assets/images";
+import * as images from "../assets/images";
 
 interface IProps {
   title: string;

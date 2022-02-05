@@ -8,6 +8,8 @@ const tricepsBg = require("./tricepsBg.jpg");
 const wristBg = require("./wristBg.jpg");
 const fullBodyBg = require("./fullBodyBg.jpg");
 const logo = require("./logo.png");
+const shoulderTricepsLegsBg = require("./shoulderTricepsLegsBg.jpg");
+const chestBackBicepsBg = require("./chestBackBicepsBg.jpg");
 
 export {
   fitnessBg,
@@ -20,4 +22,6 @@ export {
   wristBg,
   fullBodyBg,
   logo,
+  shoulderTricepsLegsBg,
+  chestBackBicepsBg
 };

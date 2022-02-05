@@ -1,15 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
-import { Provider } from "react-redux";
+import { StyleSheet, View } from "react-native";
 import {
   Provider as PaperProvider,
   DefaultTheme,
   Colors,
 } from "react-native-paper";
 import Constants from "expo-constants";
-import StackNavigator from "./src/navigators/StackNavigator";
-import "./src/configs/firebaseConfig";
-import { store } from "./src/redux/reducers/configureStore";
+import RootStack from "./src/routers/RootStack";
 
 const theme = {
   ...DefaultTheme,
@@ -21,12 +18,21 @@ const theme = {
 
 export default function App() {
   return (
-    <Provider store={store}>
+    <>
       <View style={{ height: Constants.statusBarHeight }}></View>
       <StatusBar style="light" backgroundColor={Colors.green800} />
       <PaperProvider theme={theme}>
-        <StackNavigator />
+        <RootStack />
       </PaperProvider>
-    </Provider>
+    </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
