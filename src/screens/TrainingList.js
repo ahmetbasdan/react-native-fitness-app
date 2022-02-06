@@ -20,11 +20,11 @@ const TrainingList = () => {
         <Space />
         <BannerCard
           bg={images.fullBodyBg}
-          title="Tüm Vücut Başlangıç Antreman"
+          title="Tüm Vücut Başlangıç Antremanı"
           onPress={() =>
             navigation.navigate("trainingDetail", {
               data: fullBodyCardData,
-              title: "FullBody Antreman",
+              title: "Tüm Vücut Başlangıç Antremanı",
             })
           }
           rightText="Seviye 1"
@@ -32,11 +32,11 @@ const TrainingList = () => {
         <Space />
         <BannerCard
           bg={images.chestBackBicepsBg}
-          title="Göğüs - Ön Kol - Sırt Antreman"
+          title="Göğüs - Ön Kol - Sırt Antremanı"
           onPress={() =>
             navigation.navigate("trainingDetail", {
               data: chestBackBicepsData,
-              title: "Göğüs - Ön Kol - Sırt Antreman",
+              title: "Göğüs - Ön Kol - Sırt Antremanı",
             })
           }
           rightText="Seviye 2"
@@ -44,11 +44,11 @@ const TrainingList = () => {
         <Space />
         <BannerCard
           bg={images.shoulderTricepsLegsBg}
-          title="Omuz - Arka Kol - Bacak Antreman"
+          title="Omuz - Arka Kol - Bacak Antremanı"
           onPress={() =>
             navigation.navigate("trainingDetail", {
               data: shoulderTricepsLegsData,
-              title: "Omuz - Arka Kol - Bacak Antreman",
+              title: "Omuz - Arka Kol - Bacak Antremanı",
             })
           }
           rightText="Seviye 2"

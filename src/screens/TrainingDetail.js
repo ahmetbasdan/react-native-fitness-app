@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { View, ScrollView, StyleSheet, ActivityIndicator } from "react-native";
-import { Appbar, Colors } from "react-native-paper";
+import { View, ScrollView, StyleSheet } from "react-native";
+import { Appbar, Colors,ActivityIndicator } from "react-native-paper";
 import { Space, TrainingMovementCard } from "../components";
 import { useRoute } from "@react-navigation/native";
 
@@ -17,7 +17,7 @@ const TrainingDetail = () => {
   if (loading) {
     return (
       <View style={styles.loadingContiner}>
-        <ActivityIndicator size={"large"} color={Colors.green600} />
+        <ActivityIndicator size={"large"} animating />
       </View>
     );
   }
