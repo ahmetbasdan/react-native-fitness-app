@@ -47,7 +47,7 @@ const useSportCardsData = () => {
       bg: images.bicepsBg,
     },
     {
-      title: "Scot Curls",
+      title: "Scott Curls",
       subTitle: "3 Set 12-10-8",
       gif: gifs.scotCurlGif,
       bg: images.bicepsBg,
@@ -121,7 +121,7 @@ const useSportCardsData = () => {
       bg: images.bicepsBg,
     },
     {
-      title: "Scout Curl",
+      title: "Scott Curl",
       subTitle: "3 Set 12-10-8",
       gif: gifs.scotCurlGif,
       bg: images.bicepsBg,
