@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, ScrollView, StyleSheet, ActivityIndicator } from "react-native";
 import { Appbar, Colors } from "react-native-paper";
-import { Space, SporMovementCard } from "../components";
+import { Space, TrainingMovementCard } from "../components";
 import { useRoute } from "@react-navigation/native";
 
 const TrainingDetail = () => {
@@ -31,7 +31,7 @@ const TrainingDetail = () => {
         {params?.data.map((item, index) => (
           <View key={index}>
             <Space />
-            <SporMovementCard index={index} {...item} />
+            <TrainingMovementCard index={index} {...item} />
           </View>
         ))}
         <Space />

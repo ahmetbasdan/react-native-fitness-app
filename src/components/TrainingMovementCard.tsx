@@ -20,7 +20,7 @@ interface IProps {
   index: number;
 }
 
-const SporMovementCard: React.FC<IProps> = ({
+const TrainingMovementCard: React.FC<IProps> = ({
   title = "Başlık",
   subTitle = "Alt Başlık",
   gif = benchPressGif,
@@ -28,26 +28,31 @@ const SporMovementCard: React.FC<IProps> = ({
   index = 1,
 }) => {
   const [gifVisible, setGifVisible] = useState(false);
+  const [selected, setSelected] = useState(false);
 
-  const showModal = () => setGifVisible(true);
+  const showModal = () => {
+    setSelected(true);
+    setGifVisible(true);
+  };
 
   const hideModal = () => setGifVisible(false);
+
+  const selectedFalse = () => setSelected(false);
 
   return (
     <>
       <Card
-        style={{ marginHorizontal: 8, paddingVertical: 8 }}
+        style={{
+          marginHorizontal: 8,
+          paddingVertical: 8,
+          borderWidth: selected ? 1 : 0,
+          borderColor: selected ? Colors.pink500 : null,
+        }}
         onPress={showModal}
+        onLongPress={selectedFalse}
       >
         <View style={styles.cardRow}>
-          <View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-              marginHorizontal: 8,
-            }}
-          >
+          <View style={styles.avatarContent}>
             <Badge style={styles.sortNumber}>{index + 1}</Badge>
             <Avatar.Image source={bg}></Avatar.Image>
           </View>
@@ -59,7 +64,7 @@ const SporMovementCard: React.FC<IProps> = ({
             />
           </View>
           <IconButton
-            icon={"play-circle"}
+            icon={gifVisible ? "pause-circle" : "play-circle"}
             color={Colors.green500}
             size={41}
             onPress={showModal}
@@ -80,11 +85,17 @@ const SporMovementCard: React.FC<IProps> = ({
   );
 };
 
-export default SporMovementCard;
+export default TrainingMovementCard;
 
 const styles = StyleSheet.create({
   cardRow: {
     flexDirection: "row",
+  },
+  avatarContent: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 8,
   },
   leftContent: {
     flex: 1,
