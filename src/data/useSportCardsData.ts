@@ -128,7 +128,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Wrist",
-      subTitle: "2x 20-15",
+      subTitle: "2 Set 20-15",
       gif: gifs.wristGif,
       bg: images.wristBg,
     },

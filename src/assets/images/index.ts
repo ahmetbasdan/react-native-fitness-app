@@ -10,6 +10,10 @@ const fullBodyBg = require("./fullBodyBg.jpg");
 const logo = require("./logo.png");
 const shoulderTricepsLegsBg = require("./shoulderTricepsLegsBg.jpg");
 const chestBackBicepsBg = require("./chestBackBicepsBg.jpg");
+const proteinSourcesBg = require("./proteinSourcesBg.jpg");
+const qualtyCarbohydrateBg = require("./qualtyCarbohydrateBg.jpg");
+const rolledOatsBg = require("./rolledOatsBg.jpg");
+const vegetableProteinsSourcesBg = require("./vegetableProteinsSourcesBg.jpg");
 
 export {
   fitnessBg,
@@ -23,5 +27,9 @@ export {
   fullBodyBg,
   logo,
   shoulderTricepsLegsBg,
-  chestBackBicepsBg
+  chestBackBicepsBg,
+  proteinSourcesBg,
+  qualtyCarbohydrateBg,
+  rolledOatsBg,
+  vegetableProteinsSourcesBg
 };

@@ -1,5 +1,5 @@
-import SportParentCard from "./SportParentCard";
+import BannerCard from "./BannerCard";
 import SporMovementCard from "./SporMovementCard";
 import Space from "./Space";
 
-export { SportParentCard, SporMovementCard, Space };
+export { BannerCard, SporMovementCard, Space };

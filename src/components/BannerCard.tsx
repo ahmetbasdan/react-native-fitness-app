@@ -1,12 +1,13 @@
 import React from "react";
 import { ImageSourcePropType, View, StyleSheet } from "react-native";
-import { Card, Colors, Title, TouchableRipple } from "react-native-paper";
+import { Card, Colors, Title, TouchableRipple, Text } from "react-native-paper";
 import * as images from "../assets/images";
 
 interface IProps {
   title: string;
   bg?: ImageSourcePropType;
   onPress?: () => void;
+  rightText?: string;
 }
 
 const BORDER_RADIUS = 12;
@@ -15,6 +16,7 @@ const SportParentCard: React.FC<IProps> = ({
   title = "Title",
   bg = images.fitnessBg,
   onPress,
+  rightText,
 }) => {
   return (
     <TouchableRipple onPress={onPress}>
@@ -23,6 +25,7 @@ const SportParentCard: React.FC<IProps> = ({
         <View style={styles.titleContainer}>
           <Title style={styles.title}>{title} </Title>
         </View>
+        {rightText && <Text style={styles.rightText}>{rightText}</Text>}
       </>
     </TouchableRipple>
   );
@@ -46,5 +49,17 @@ const styles = StyleSheet.create({
   title: {
     color: Colors.white,
     paddingLeft: 16,
+  },
+  rightText: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    backgroundColor: Colors.pink500,
+    color: Colors.white,
+    paddingHorizontal: 6,
+    paddingVertical: 3,
+    borderTopRightRadius: BORDER_RADIUS,
+    borderBottomLeftRadius: BORDER_RADIUS,
+    fontSize: 12,
   },
 });

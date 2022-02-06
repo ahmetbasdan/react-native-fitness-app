@@ -1,12 +1,12 @@
 import { View, StyleSheet, ScrollView, Image } from "react-native";
 import React from "react";
 import { Appbar } from "react-native-paper";
-import { Space, SportParentCard } from "../components";
+import { Space, BannerCard } from "../components";
 import * as images from "../assets/images";
 import { useNavigation } from "@react-navigation/native";
 import useSportCardsData from "../data/useSportCardsData";
 
-const Dashboard = () => {
+const TrainingList = () => {
   const navigation = useNavigation();
   const { fullBodyCardData, chestBackBicepsData, shoulderTricepsLegsData } =
     useSportCardsData();
@@ -14,49 +14,52 @@ const Dashboard = () => {
   return (
     <View style={styles.container}>
       <Appbar>
-        <Appbar.Content title="Fitness Programı" />
+        <Appbar.Content title="Antreman Listesi" />
       </Appbar>
       <ScrollView contentContainerStyle={styles.content}>
         <Space />
-        <SportParentCard
+        <BannerCard
           bg={images.fullBodyBg}
           title="Tüm Vücut Başlangıç Antreman"
           onPress={() =>
-            navigation.navigate("sportsDetail", {
+            navigation.navigate("trainingDetail", {
               data: fullBodyCardData,
               title: "FullBody Antreman",
             })
           }
+          rightText="Seviye 1"
         />
         <Space />
-        <SportParentCard
+        <BannerCard
           bg={images.chestBackBicepsBg}
           title="Göğüs - Ön Kol - Sırt Antreman"
           onPress={() =>
-            navigation.navigate("sportsDetail", {
+            navigation.navigate("trainingDetail", {
               data: chestBackBicepsData,
               title: "Göğüs - Ön Kol - Sırt Antreman",
             })
           }
+          rightText="Seviye 2"
         />
         <Space />
-        <SportParentCard
+        <BannerCard
           bg={images.shoulderTricepsLegsBg}
           title="Omuz - Arka Kol - Bacak Antreman"
           onPress={() =>
-            navigation.navigate("sportsDetail", {
+            navigation.navigate("trainingDetail", {
               data: shoulderTricepsLegsData,
               title: "Omuz - Arka Kol - Bacak Antreman",
             })
           }
+          rightText="Seviye 2"
         />
-        <Space />
+        <Space h="24" />
       </ScrollView>
     </View>
   );
 };
 
-export default Dashboard;
+export default TrainingList;
 
 const styles = StyleSheet.create({
   container: {

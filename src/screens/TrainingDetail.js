@@ -4,7 +4,7 @@ import { Appbar, Colors } from "react-native-paper";
 import { Space, SporMovementCard } from "../components";
 import { useRoute } from "@react-navigation/native";
 
-const SportsDetail = () => {
+const TrainingDetail = () => {
   const [loading, setLoading] = useState(true);
   const { params } = useRoute();
 
@@ -40,7 +40,7 @@ const SportsDetail = () => {
   );
 };
 
-export default SportsDetail;
+export default TrainingDetail;
 
 const styles = StyleSheet.create({
   container: {
