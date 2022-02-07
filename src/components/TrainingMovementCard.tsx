@@ -11,10 +11,13 @@ import {
   TextInput,
   Button,
 } from "react-native-paper";
-import { Space } from ".";
+import { useDispatch, useSelector } from "react-redux";
 import { benchPressGif } from "../assets/gifs";
 import { fitnessBg } from "../assets/images";
+import { setMovement } from "../redux/actions/movementAction";
+import { movementType, trainingType } from "../typings";
 import Row from "./Row";
+import Space from "./Space";
 
 interface IProps {
   title: string;
@@ -22,7 +25,8 @@ interface IProps {
   gif?: NodeRequire;
   bg?: NodeRequire;
   index: number;
-  set: number;
+  training: trainingType;
+  movement: movementType;
 }
 
 const TrainingMovementCard: React.FC<IProps> = ({
@@ -31,14 +35,19 @@ const TrainingMovementCard: React.FC<IProps> = ({
   gif = benchPressGif,
   bg = fitnessBg,
   index = 1,
-  set = 3,
+  movement,
+  training,
 }) => {
   const [gifVisible, setGifVisible] = useState(false);
   const [selected, setSelected] = useState(false);
   const [setData, setSetData] = useState<string[]>([]);
+  const dispatch = useDispatch();
+  const trainingReducer: any = useSelector<any>(
+    (state) => state.trainingReducer
+  );
 
   useEffect(() => {
-    setDefaultData();
+    initialSetData();
   }, []);
 
   const showModal = () => {
@@ -46,43 +55,57 @@ const TrainingMovementCard: React.FC<IProps> = ({
     setGifVisible(true);
   };
 
-  const hideModal = () => setGifVisible(false);
+  const hideModal = () => {
+    setGifVisible(false);
+    saveSetData();
+  };
 
   const selectedFalse = () => setSelected(false);
 
-  const setDefaultData = () => {
+  const initialSetData = () => {
     const setDefaultData: string[] = [];
-    for (let i = 0; i < set; i++) {
-      setDefaultData.push("");
-    }
+
+    const trainigMovementData: any = trainingReducer?.[training]?.[movement];
+
+    trainigMovementData.forEach((element: any) => {
+      setDefaultData.push(element);
+    });
+
     setSetData(setDefaultData);
   };
 
+  const saveSetData = () => {
+    const nextTrainingData = { ...trainingReducer };
+    nextTrainingData[training][movement] = setData;
+    dispatch(setMovement(nextTrainingData));
+  };
+
   const setRender = () => {
-    const jsxData = [];
-    for (let i = 0; i < set; i++) {
+    const jsxData: JSX.Element[] = [];
+
+    setData.map((item, index) => {
       jsxData.push(
-        <View key={i}>
+        <View key={index}>
           <Space />
           <Row>
             <TextInput
-              value={setData?.[i] ? setData[i] : ""}
-              onChangeText={(val)=>{
-                const nextSetData=[...setData]
-                nextSetData[i]=val
-                setSetData(nextSetData)
+              value={item}
+              onChangeText={(val) => {
+                const nextSetData = [...setData];
+                nextSetData[index] = val;
+                setSetData(nextSetData);
               }}
               style={styles.setInput}
               keyboardType="numeric"
-              placeholder={`${i+1}. Set Ağırlığı`}
+              placeholder={`${index + 1}. Set Ağırlığı`}
             />
             <Button style={styles.setSaveInput} mode="outlined">
-              Kaydet
+              KG
             </Button>
           </Row>
         </View>
       );
-    }
+    });
     return jsxData;
   };
 
@@ -176,9 +199,10 @@ const styles = StyleSheet.create({
     flex: 2,
     height: 25,
     justifyContent: "center",
-    marginRight: 12,
   },
   setSaveInput: {
     justifyContent: "center",
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
   },
 });

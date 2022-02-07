@@ -7,6 +7,9 @@ import {
 } from "react-native-paper";
 import Constants from "expo-constants";
 import RootStack from "./src/routers/RootStack";
+import { Provider as ReduxProvider } from "react-redux";
+import { store, persistor } from "./src/redux/reducers/configureStore";
+import { PersistGate } from "redux-persist/integration/react";
 
 const theme = {
   ...DefaultTheme,
@@ -18,13 +21,15 @@ const theme = {
 
 export default function App() {
   return (
-    <>
-      <View style={{ height: Constants.statusBarHeight }}></View>
-      <StatusBar style="light" backgroundColor={Colors.green800} />
-      <PaperProvider theme={theme}>
-        <RootStack />
-      </PaperProvider>
-    </>
+    <ReduxProvider store={store}>
+      <PersistGate persistor={persistor}>
+        <View style={{ height: Constants.statusBarHeight }}></View>
+        <StatusBar style="light" backgroundColor={Colors.green800} />
+        <PaperProvider theme={theme}>
+          <RootStack />
+        </PaperProvider>
+      </PersistGate>
+    </ReduxProvider>
   );
 }
 

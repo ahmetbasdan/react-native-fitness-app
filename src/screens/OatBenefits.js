@@ -36,7 +36,7 @@ const OatBenefits = () => {
         <Space />
         <Card>
           <Card.Cover source={images.rolledOatsBg} />
-          <Card.Title title="Yulaf Ezmesi" />
+          <Card.Title title="Yulaf Ezmesinin Faydaları" />
           <Card.Content>
             <Paragraph>
               Yulaf ezmesinin içeriğinde potasyum, kalsiyum, demir gibi birçok
