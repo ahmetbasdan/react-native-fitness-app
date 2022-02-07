@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import {
   Avatar,
@@ -8,9 +8,13 @@ import {
   IconButton,
   Colors,
   Badge,
+  TextInput,
+  Button,
 } from "react-native-paper";
+import { Space } from ".";
 import { benchPressGif } from "../assets/gifs";
 import { fitnessBg } from "../assets/images";
+import Row from "./Row";
 
 interface IProps {
   title: string;
@@ -18,6 +22,7 @@ interface IProps {
   gif?: NodeRequire;
   bg?: NodeRequire;
   index: number;
+  set: number;
 }
 
 const TrainingMovementCard: React.FC<IProps> = ({
@@ -26,9 +31,15 @@ const TrainingMovementCard: React.FC<IProps> = ({
   gif = benchPressGif,
   bg = fitnessBg,
   index = 1,
+  set = 3,
 }) => {
   const [gifVisible, setGifVisible] = useState(false);
   const [selected, setSelected] = useState(false);
+  const [setData, setSetData] = useState<string[]>([]);
+
+  useEffect(() => {
+    setDefaultData();
+  }, []);
 
   const showModal = () => {
     setSelected(true);
@@ -38,6 +49,42 @@ const TrainingMovementCard: React.FC<IProps> = ({
   const hideModal = () => setGifVisible(false);
 
   const selectedFalse = () => setSelected(false);
+
+  const setDefaultData = () => {
+    const setDefaultData: string[] = [];
+    for (let i = 0; i < set; i++) {
+      setDefaultData.push("");
+    }
+    setSetData(setDefaultData);
+  };
+
+  const setRender = () => {
+    const jsxData = [];
+    for (let i = 0; i < set; i++) {
+      jsxData.push(
+        <View key={i}>
+          <Space />
+          <Row>
+            <TextInput
+              value={setData?.[i] ? setData[i] : ""}
+              onChangeText={(val)=>{
+                const nextSetData=[...setData]
+                nextSetData[i]=val
+                setSetData(nextSetData)
+              }}
+              style={styles.setInput}
+              keyboardType="numeric"
+              placeholder={`${i+1}. Set Ağırlığı`}
+            />
+            <Button style={styles.setSaveInput} mode="outlined">
+              Kaydet
+            </Button>
+          </Row>
+        </View>
+      );
+    }
+    return jsxData;
+  };
 
   return (
     <>
@@ -78,7 +125,10 @@ const TrainingMovementCard: React.FC<IProps> = ({
           onDismiss={hideModal}
           contentContainerStyle={styles.modal}
         >
-          <Card.Cover source={gif} />
+          <Card>
+            <Card.Cover source={gif} />
+            <Card.Content>{setRender()}</Card.Content>
+          </Card>
         </Modal>
       </Portal>
     </>
@@ -121,5 +171,14 @@ const styles = StyleSheet.create({
   },
   modal: {
     marginHorizontal: 12,
+  },
+  setInput: {
+    flex: 2,
+    height: 25,
+    justifyContent: "center",
+    marginRight: 12,
+  },
+  setSaveInput: {
+    justifyContent: "center",
   },
 });
