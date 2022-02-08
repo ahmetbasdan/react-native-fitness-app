@@ -1,1 +1,3 @@
 export const SET_MOVEMENT = "SET_MOVEMENT";
+
+export const SET_THEME_TOGGLE="SET_THEME_TOGGLE"

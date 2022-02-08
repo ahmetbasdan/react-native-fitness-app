@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { ActivityIndicator, Appbar } from "react-native-paper";
 import * as images from "../assets/images";
-import { NutritionDetailCard, Space } from "../components";
+import { Container, NutritionDetailCard, Space } from "../components";
 
 const QulityCarbohydrate = () => {
   const [loading, setLoading] = useState(true);
@@ -15,14 +15,14 @@ const QulityCarbohydrate = () => {
 
   if (loading) {
     return (
-      <View style={styles.loadingContainer}>
+      <Container style={styles.loadingContainer}>
         <ActivityIndicator size={"large"} animating />
-      </View>
+      </Container>
     );
   }
 
   return (
-    <View style={styles.container}>
+    <Container>
       <Appbar>
         <Appbar.Content title="Kaliteli Karbonhidrat Kaynakları" />
       </Appbar>
@@ -52,18 +52,15 @@ const QulityCarbohydrate = () => {
           image={images.kiona}
           paragraph="Kinoa vücudunun ihtiyaç duyduğu, kas oluşumuna yardımcı olan 9 farklı aminoasite ve doymuş yağlara sahip bir besin. Yemeklerinin yanında yan öğün olarak tükettiğinde seni tok tutmaya da yarayacak."
         />
-        <Space h="28"/>
+        <Space h="28" />
       </ScrollView>
-    </View>
+    </Container>
   );
 };
 
 export default QulityCarbohydrate;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   loadingContainer: {
     flex: 1,
     justifyContent: "center",

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, ScrollView, StyleSheet } from "react-native";
 import { Appbar, ActivityIndicator } from "react-native-paper";
-import { Space, TrainingMovementCard } from "../components";
+import { Container, Space, TrainingMovementCard } from "../components";
 import { useRoute } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { setMovement } from "../redux/actions/movementAction";
@@ -20,9 +20,9 @@ const TrainingDetail = () => {
 
   if (loading) {
     return (
-      <View style={styles.loadingContiner}>
+      <Container style={styles.loadingContiner}>
         <ActivityIndicator size={"large"} animating />
-      </View>
+      </Container>
     );
   }
 
@@ -37,7 +37,7 @@ const TrainingDetail = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <Container>
       <Appbar>
         <Appbar.Content title={params?.title || "Spor Antremanı"} />
       </Appbar>
@@ -59,7 +59,7 @@ const TrainingDetail = () => {
         })}
         <Space />
       </ScrollView>
-    </View>
+    </Container>
   );
 };
 

@@ -3,7 +3,7 @@ import storage from "@react-native-async-storage/async-storage";
 const configurePersist = {
   key: "root",
   storage,
-  whitelist: ["trainingReducer"],
+  whitelist: ["trainingReducer", "themeReducer"],
 };
 
 export default configurePersist;

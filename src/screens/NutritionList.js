@@ -1,7 +1,7 @@
-import { View, StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import { Appbar } from "react-native-paper";
-import { Space, BannerCard } from "../components";
+import { Space, BannerCard, Container } from "../components";
 import * as images from "../assets/images";
 import { useNavigation } from "@react-navigation/native";
 
@@ -9,7 +9,7 @@ const NutritionList = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <Container>
       <Appbar>
         <Appbar.Content title="Sağlıklı Beslenme" />
       </Appbar>
@@ -34,16 +34,13 @@ const NutritionList = () => {
         />
         <Space h="24" />
       </ScrollView>
-    </View>
+    </Container>
   );
 };
 
 export default NutritionList;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   content: {
     marginHorizontal: 8,
   },

@@ -5,7 +5,7 @@ import {
   Appbar,
 } from "react-native-paper";
 import * as images from "../assets/images";
-import { NutritionDetailCard, Space } from "../components";
+import { Container, NutritionDetailCard, Space } from "../components";
 
 const ProteinSources = () => {
   const [loading, setLoading] = useState(true);
@@ -18,14 +18,14 @@ const ProteinSources = () => {
 
   if (loading) {
     return (
-      <View style={styles.loadingContainer}>
+      <Container style={styles.loadingContainer}>
         <ActivityIndicator size={"large"} animating />
-      </View>
+      </Container>
     );
   }
 
   return (
-    <View style={styles.container}>
+    <Container>
       <Appbar>
         <Appbar.Content title="Protein Kaynakları" />
       </Appbar>
@@ -169,16 +169,13 @@ Protein içeriği: Yer fıstığındaki kalorilerin % 18'i proteinden gelmektedi
         />
         <Space h="28"/>
       </ScrollView>
-    </View>
+    </Container>
   );
 };
 
 export default ProteinSources;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   loadingContainer: {
     flex: 1,
     justifyContent: "center",

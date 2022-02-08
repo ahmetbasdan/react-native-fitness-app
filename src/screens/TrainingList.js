@@ -1,20 +1,26 @@
-import { View, StyleSheet, ScrollView, Image } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import { Appbar } from "react-native-paper";
-import { Space, BannerCard } from "../components";
+import { Space, BannerCard, Container } from "../components";
 import * as images from "../assets/images";
 import { useNavigation } from "@react-navigation/native";
 import useSportCardsData from "../data/useSportCardsData";
+import { useDispatch } from "react-redux";
+import { setThemeToggle } from "../redux/actions/themeAction";
 
 const TrainingList = () => {
   const navigation = useNavigation();
   const { fullBodyCardData, chestBackBicepsData, shoulderTricepsLegsData } =
     useSportCardsData();
+  const dispatch = useDispatch();
+
+  const themeToggle = () => dispatch(setThemeToggle());
 
   return (
-    <View style={styles.container}>
+    <Container>
       <Appbar>
         <Appbar.Content title="Antreman Listesi" />
+        <Appbar.Action icon="brightness-6" onPress={themeToggle} />
       </Appbar>
       <ScrollView contentContainerStyle={styles.content}>
         <Space />
@@ -55,16 +61,13 @@ const TrainingList = () => {
         />
         <Space h="24" />
       </ScrollView>
-    </View>
+    </Container>
   );
 };
 
 export default TrainingList;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   content: {
     marginHorizontal: 8,
   },

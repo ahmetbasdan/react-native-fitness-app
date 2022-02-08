@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -8,7 +8,7 @@ import {
   Divider,
 } from "react-native-paper";
 import * as images from "../assets/images";
-import { Space } from "../components";
+import { Container, Space } from "../components";
 
 const OatBenefits = () => {
   const [loading, setLoading] = useState(true);
@@ -21,14 +21,14 @@ const OatBenefits = () => {
 
   if (loading) {
     return (
-      <View style={styles.loadingContainer}>
+      <Container style={styles.loadingContainer}>
         <ActivityIndicator size={"large"} animating />
-      </View>
+      </Container>
     );
   }
 
   return (
-    <View style={styles.container}>
+    <Container>
       <Appbar>
         <Appbar.Content title="Yulaf Ezmesinin Faydaları" />
       </Appbar>
@@ -130,16 +130,13 @@ const OatBenefits = () => {
         </Card>
         <Space h="28" />
       </ScrollView>
-    </View>
+    </Container>
   );
 };
 
 export default OatBenefits;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   loadingContainer: {
     flex: 1,
     justifyContent: "center",
