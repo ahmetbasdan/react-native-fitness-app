@@ -11,11 +11,8 @@ import {
   TextInput,
   Button,
 } from "react-native-paper";
-import { useDispatch, useSelector } from "react-redux";
 import { benchPressGif } from "../assets/gifs";
 import { fitnessBg } from "../assets/images";
-import { setMovement } from "../redux/actions/movementAction";
-import { movementType, trainingType } from "../typings";
 import Row from "./Row";
 import Space from "./Space";
 
@@ -25,8 +22,8 @@ interface IProps {
   gif?: NodeRequire;
   bg?: NodeRequire;
   index: number;
-  training: trainingType;
-  movement: movementType;
+  data: string[];
+  onSetData: (setData: string[]) => void;
 }
 
 const TrainingMovementCard: React.FC<IProps> = ({
@@ -35,20 +32,12 @@ const TrainingMovementCard: React.FC<IProps> = ({
   gif = benchPressGif,
   bg = fitnessBg,
   index = 1,
-  movement,
-  training,
+  data = [],
+  onSetData,
 }) => {
   const [gifVisible, setGifVisible] = useState(false);
   const [selected, setSelected] = useState(false);
-  const [setData, setSetData] = useState<string[]>([]);
-  const dispatch = useDispatch();
-  const trainingReducer: any = useSelector<any>(
-    (state) => state.trainingReducer
-  );
-
-  useEffect(() => {
-    initialSetData();
-  }, []);
+  const [setData, setSetData] = useState<string[]>(data);
 
   const showModal = () => {
     setSelected(true);
@@ -57,28 +46,10 @@ const TrainingMovementCard: React.FC<IProps> = ({
 
   const hideModal = () => {
     setGifVisible(false);
-    saveSetData();
+    onSetData(setData);
   };
 
   const selectedFalse = () => setSelected(false);
-
-  const initialSetData = () => {
-    const setDefaultData: string[] = [];
-
-    const trainigMovementData: any = trainingReducer?.[training]?.[movement];
-
-    trainigMovementData.forEach((element: any) => {
-      setDefaultData.push(element);
-    });
-
-    setSetData(setDefaultData);
-  };
-
-  const saveSetData = () => {
-    const nextTrainingData = { ...trainingReducer };
-    nextTrainingData[training][movement] = setData;
-    dispatch(setMovement(nextTrainingData));
-  };
 
   const setRender = () => {
     const jsxData: JSX.Element[] = [];
@@ -158,7 +129,16 @@ const TrainingMovementCard: React.FC<IProps> = ({
   );
 };
 
-export default TrainingMovementCard;
+export default React.memo(
+  TrainingMovementCard,
+  (
+    prevProps: Readonly<React.PropsWithChildren<IProps>>,
+    nextProps: Readonly<React.PropsWithChildren<IProps>>
+  ) => {
+    
+    return prevProps.data.toString()==nextProps.data.toString();
+  }
+);
 
 const styles = StyleSheet.create({
   cardRow: {
