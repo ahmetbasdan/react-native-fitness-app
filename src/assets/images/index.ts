@@ -35,6 +35,10 @@ const yogurt = require("./yogurt.jpg");
 const peas = require("./peas.jpg");
 const wheatPasta = require("./wheatPasta.jpg");
 const bean = require("./bean.jpg");
+const onboarding1 = require("./onboarding-1.jpg");
+const onboarding2 = require("./onboarding-2.jpg");
+const onboarding3 = require("./onboarding-3.jpg");
+const onboarding4 = require("./onboarding-4.jpg");
 
 export {
   fitnessBg,
@@ -74,4 +78,8 @@ export {
   peas,
   bean,
   wheatPasta,
+  onboarding1,
+  onboarding2,
+  onboarding3,
+  onboarding4,
 };

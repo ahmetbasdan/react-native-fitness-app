@@ -10,13 +10,14 @@ import {
   DarkTheme,
   Colors,
 } from "react-native-paper";
+import { useSelector } from "react-redux";
 
 import BottomNavigator from "./BottomNavigator";
 import TrainingDetail from "../screens/TrainingDetail";
 import ProteinSources from "../screens/ProteinSources";
 import QulityCarbohydrate from "../screens/QulityCarbohydrate";
 import OatBenefits from "../screens/OatBenefits";
-import { useSelector } from "react-redux";
+import OnBoarding from "../screens/OnBoarding";
 
 const theme = {
   ...DefaultTheme,
@@ -38,17 +39,21 @@ const Stack = createStackNavigator();
 
 const RootStack = () => {
   const themeReducer = useSelector((state) => state.themeReducer);
+  const showOnboardingReducer = useSelector(
+    (state) => state.showOnboardingReducer
+  );
 
   return (
     <PaperProvider theme={themeReducer == "light" ? theme : darkTheme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="dashboard"
+          initialRouteName={showOnboardingReducer ? "onBoarding" : "dashboard"}
           screenOptions={{
             headerShown: false,
             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           }}
         >
+          <Stack.Screen name="onBoarding" component={OnBoarding} />
           <Stack.Screen name="dashboard" component={BottomNavigator} />
           <Stack.Screen name="trainingDetail" component={TrainingDetail} />
           <Stack.Screen name="proteinSources" component={ProteinSources} />
