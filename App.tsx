@@ -4,6 +4,7 @@ import RootStack from "./src/routers/RootStack";
 import { Provider as ReduxProvider } from "react-redux";
 import { store, persistor } from "./src/redux/reducers/configureStore";
 import { PersistGate } from "redux-persist/integration/react";
+import './src/localization'
 
 export default function App() {
   return (

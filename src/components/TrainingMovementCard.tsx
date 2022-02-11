@@ -15,6 +15,7 @@ import { benchPressGif } from "../assets/gifs";
 import { fitnessBg } from "../assets/images";
 import Row from "./Row";
 import Space from "./Space";
+import i18n from "i18n-js";
 
 interface IProps {
   title: string;
@@ -68,7 +69,7 @@ const TrainingMovementCard: React.FC<IProps> = ({
               }}
               style={styles.setInput}
               keyboardType="numeric"
-              placeholder={`${index + 1}. Set Ağırlığı`}
+              placeholder={`${index + 1}. ${i18n.t("training.movement.setWeight")}`}
             />
             <Button style={styles.setSaveInput} mode="outlined">
               KG

@@ -7,6 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import useSportCardsData from "../data/useSportCardsData";
 import { useDispatch } from "react-redux";
 import { setThemeToggle } from "../redux/actions/themeAction";
+import i18n from "i18n-js";
 
 const TrainingList = () => {
   const navigation = useNavigation();
@@ -19,45 +20,45 @@ const TrainingList = () => {
   return (
     <Container>
       <Appbar>
-        <Appbar.Content title="Antreman Listesi" />
+        <Appbar.Content title={i18n.t("training.title")} />
         <Appbar.Action icon="brightness-6" onPress={themeToggle} />
       </Appbar>
       <ScrollView contentContainerStyle={styles.content}>
         <Space />
         <BannerCard
           bg={images.fullBodyBg}
-          title="Tüm Vücut Başlangıç Antremanı"
+          title={i18n.t("training.fullBody.title")}
           onPress={() =>
             navigation.navigate("trainingDetail", {
               data: fullBodyCardData,
               title: "Tüm Vücut Başlangıç Antremanı",
             })
           }
-          rightText="Seviye 1"
+          rightText={i18n.t("training.fullBody.level")}
         />
         <Space />
         <BannerCard
           bg={images.chestBackBicepsBg}
-          title="Göğüs - Ön Kol - Sırt Antremanı"
+          title={i18n.t("training.chestBicepsBack.title")}
           onPress={() =>
             navigation.navigate("trainingDetail", {
               data: chestBackBicepsData,
-              title: "Göğüs - Ön Kol - Sırt Antremanı",
+              title: i18n.t("training.chestBicepsBack.title"),
             })
           }
-          rightText="Seviye 2"
+          rightText={i18n.t("training.chestBicepsBack.level")}
         />
         <Space />
         <BannerCard
           bg={images.shoulderTricepsLegsBg}
-          title="Omuz - Arka Kol - Bacak Antremanı"
+          title={i18n.t("training.shoulderTricepsLegs.title")}
           onPress={() =>
             navigation.navigate("trainingDetail", {
               data: shoulderTricepsLegsData,
-              title: "Omuz - Arka Kol - Bacak Antremanı",
+              title: i18n.t("training.shoulderTricepsLegs.title"),
             })
           }
-          rightText="Seviye 2"
+          rightText={i18n.t("training.shoulderTricepsLegs.level")}
         />
         <Space h="24" />
       </ScrollView>

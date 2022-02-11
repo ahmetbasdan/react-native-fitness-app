@@ -1,6 +1,7 @@
 import * as images from "../assets/images";
 import * as gifs from "../assets/gifs";
 import { movementType, trainingType } from "../typings";
+import i18n from 'i18n-js'
 
 type dataType = {
   title: string;
@@ -15,7 +16,7 @@ const useSportCardsData = () => {
   const fullBodyCardData: dataType = [
     {
       title: "Chest Press",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.chestPressGif,
       bg: images.chestBg,
       movement:"chestPress",
@@ -23,7 +24,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Butterfly",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.butterflyGif,
       bg: images.chestBg,
       movement:"butterfly",
@@ -31,7 +32,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Shoulder Press",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.shoulderPressGif,
       bg: images.shoulderBg,
       movement:"shoulderPress",
@@ -39,7 +40,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Lat Pulldown",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.latPullDownGif,
       bg: images.backBg,
       movement:"latPulldown",
@@ -47,7 +48,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Low Row",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.lowRowGif,
       bg: images.backBg,
       movement:"lowRow",
@@ -55,7 +56,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Dumbell Curls",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.dumbellCurlsGif,
       bg: images.bicepsBg,
       movement:"dumbellCurls",
@@ -63,7 +64,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Scott Curl",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.scotCurlGif,
       bg: images.bicepsBg,
       movement:"scottCurl",
@@ -71,7 +72,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Push Down",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.pushDownGif,
       bg: images.tricepsBg,
       movement:"pushDown",
@@ -79,7 +80,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Squat",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.barbellSquatGif,
       bg: images.legsBg,
       movement:"squat",
@@ -89,7 +90,7 @@ const useSportCardsData = () => {
   const chestBackBicepsData: dataType = [
     {
       title: "Bench Press",
-      subTitle: "4 Set 12-10-8-6",
+      subTitle: `4 ${i18n.t('training.movement.set')} 12-10-8-6`,
       gif: gifs.benchPressGif,
       bg: images.chestBg,
       movement:"benchPress",
@@ -97,7 +98,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Butterfly",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.butterflyGif,
       bg: images.chestBg,
       movement:"butterfly",
@@ -105,7 +106,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Inline Bench Press",
-      subTitle: "4 Set 12-10-8-6",
+      subTitle: `4 ${i18n.t('training.movement.set')} 12-10-8-6`,
       gif: gifs.inlineBenchGif,
       bg: images.chestBg,
       movement:"inlineBenchPress",
@@ -113,7 +114,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Dumbell Pull Row",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.dumbellPulloeverGif,
       bg: images.chestBg,
       movement:"dumbellPullRow",
@@ -121,7 +122,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Lat Pulldown",
-      subTitle: "4 Set 12-10-8-6",
+      subTitle: `4 ${i18n.t('training.movement.set')} 12-10-8-6`,
       gif: gifs.latPullDownGif,
       bg: images.backBg,
       movement:"latPulldown",
@@ -129,7 +130,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Low Row",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.lowRowGif,
       bg: images.backBg,
       movement:"lowRow",
@@ -137,7 +138,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Dumbell Row",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.dumbellRowGif,
       bg: images.backBg,
       movement:"dumbellRow",
@@ -145,7 +146,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Z Bar Barbell Curl",
-      subTitle: "4 Set 12-10-8-6",
+      subTitle: `4 ${i18n.t('training.movement.set')} 12-10-8-6`,
       gif: gifs.zBarBarbellCurlGif,
       bg: images.bicepsBg,
       movement:"zBarBarbellCurl",
@@ -153,7 +154,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Incline Dumbell Curl",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.inclineDumbellCurlGif,
       bg: images.bicepsBg,
       movement:"inclineDumbellCurl",
@@ -161,7 +162,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Scott Curl",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.scotCurlGif,
       bg: images.bicepsBg,
       movement:"scottCurl",
@@ -169,7 +170,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Wrist",
-      subTitle: "2 Set 20-15",
+      subTitle: `2 ${i18n.t('training.movement.set')} 20-15 8`,
       gif: gifs.wristGif,
       bg: images.wristBg,
       movement:"wrist",
@@ -179,7 +180,7 @@ const useSportCardsData = () => {
   const shoulderTricepsLegsData: dataType = [
     {
       title: "Shoulder Press",
-      subTitle: "4 Set 12-10-8-6",
+      subTitle: `4 ${i18n.t('training.movement.set')} 12-10-8-6`,
       gif: gifs.shoulderPressGif,
       bg: images.shoulderBg,
       movement:"shoulderPress",
@@ -187,7 +188,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Lateral Press",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.lateralPressGif,
       bg: images.shoulderBg,
       movement:"lateralPress",
@@ -195,7 +196,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Bent Over Raise",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.bentOverRaiseGif,
       bg: images.shoulderBg,
       movement:"bentOverRaise",
@@ -203,7 +204,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Upright Row",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.uprightRowGif,
       bg: images.shoulderBg,
       movement:"uprightRow",
@@ -211,7 +212,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Z Bar Lying",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.zBarLyingGif,
       bg: images.tricepsBg,
       movement:"zBarLying",
@@ -219,7 +220,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Dumbell Triceps",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.dumbellTrecepsGif,
       bg: images.tricepsBg,
       movement:"dumbellTriceps",
@@ -227,7 +228,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Pushdown",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.pushDownGif,
       bg: images.tricepsBg,
       movement:"pushDown",
@@ -235,7 +236,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Squat",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.barbellSquatGif,
       bg: images.legsBg,
       movement:"squat",
@@ -243,7 +244,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Legs Extension",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.legExtensionsGif,
       bg: images.legsBg,
       movement:"legsExtension",
@@ -251,7 +252,7 @@ const useSportCardsData = () => {
     },
     {
       title: "Legs Curl",
-      subTitle: "3 Set 12-10-8",
+      subTitle: `3 ${i18n.t('training.movement.set')} 12-10-8`,
       gif: gifs.legsCurlGif,
       bg: images.legsBg,
       movement:"legsCurl",
