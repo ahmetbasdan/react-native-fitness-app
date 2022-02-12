@@ -39,7 +39,7 @@ const TrainingDetail = () => {
   return (
     <Container>
       <Appbar>
-        <Appbar.Content title={params?.title || "Spor Antremanı"} />
+        <Appbar.Content title={params?.title} />
       </Appbar>
       <ScrollView contentContainerStyle={styles.content}>
         {params?.data.map((item, index) => {

@@ -31,7 +31,7 @@ const TrainingList = () => {
           onPress={() =>
             navigation.navigate("trainingDetail", {
               data: fullBodyCardData,
-              title: "Tüm Vücut Başlangıç Antremanı",
+              title: i18n.t("training.fullBody.title"),
             })
           }
           rightText={i18n.t("training.fullBody.level")}

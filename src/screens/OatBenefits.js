@@ -9,6 +9,7 @@ import {
 } from "react-native-paper";
 import * as images from "../assets/images";
 import { Container, Space } from "../components";
+import i18n from "i18n-js";
 
 const OatBenefits = () => {
   const [loading, setLoading] = useState(true);
@@ -30,13 +31,13 @@ const OatBenefits = () => {
   return (
     <Container>
       <Appbar>
-        <Appbar.Content title="Yulaf Ezmesinin Faydaları" />
+        <Appbar.Content title={i18n.t("nutrition.oatBenefits.title")} />
       </Appbar>
       <ScrollView contentContainerStyle={styles.content}>
         <Space />
         <Card>
           <Card.Cover source={images.rolledOatsBg} />
-          <Card.Title title="Yulaf Ezmesinin Faydaları" />
+          <Card.Title title={i18n.t("nutrition.oatBenefits.title")} />
           <Card.Content>
             <Paragraph>
               Yulaf ezmesinin içeriğinde potasyum, kalsiyum, demir gibi birçok

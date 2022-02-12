@@ -6,6 +6,7 @@ import {
 } from "react-native-paper";
 import * as images from "../assets/images";
 import { Container, NutritionDetailCard, Space } from "../components";
+import i18n from "i18n-js";
 
 const ProteinSources = () => {
   const [loading, setLoading] = useState(true);
@@ -27,7 +28,7 @@ const ProteinSources = () => {
   return (
     <Container>
       <Appbar>
-        <Appbar.Content title="Protein Kaynakları" />
+        <Appbar.Content title={i18n.t("nutrition.proteinSources.title")} />
       </Appbar>
       <ScrollView contentContainerStyle={styles.content}>
         <NutritionDetailCard
